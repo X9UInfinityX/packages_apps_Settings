@@ -160,7 +160,7 @@
     <string name="wellbeing_title">Digital wellbeing</string>
     <string name="wellbeing_summary">Digital wellbeing and parental controls</string>
 
-     <!-- Blurs -->
+    <!-- Blurs -->
     <string name="window_blurs">Allow window-level blurs</string>
 
     <!-- WiFi Hotspot -->
@@ -179,4 +179,11 @@
         <item quantity="other">Up to <xliff:g id="device_num">%1$d</xliff:g> devices can connect to this hotspot</item>
         <item quantity="one">Up to <xliff:g id="device_num">%1$d</xliff:g> device can connect to this hotspot</item>
     </plurals>
+
+    <string name="haptic_profile_title">Haptic profile</string>
+    <string name="haptic_profile_richtap">Richtap</string>
+    <string name="haptic_profile_crisp">Crisp</string>
+    <string name="haptic_profile_gentle">Gentle</string>
+    <string name="haptic_profile_op15def">OnePlus 15 default</string>
+    <string name="haptic_profile_op15soft">OnePlus 15 soft</string>
 </resources>
