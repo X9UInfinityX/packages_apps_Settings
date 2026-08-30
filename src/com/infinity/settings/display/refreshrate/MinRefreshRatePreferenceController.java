@@ -20,7 +20,6 @@ package com.infinity.settings.display.refreshrate;
 import static android.provider.Settings.System.EXTREME_REFRESH_RATE;
 
 import android.content.Context;
-import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.provider.Settings;
 
@@ -42,7 +41,6 @@ public class MinRefreshRatePreferenceController extends BasePreferenceController
     private static final int LTPO_IDLE_REFRESH_RATE = 1;
     private static final int LTPO_LOW_REFRESH_RATE = 30;
     private static final int NO_MIN_REFRESH_RATE = 0;
-    private static final String OPLUS_LTPO_MIN_FPS_PROPERTY = "persist.sys.oplus_ltpo_min_fps";
 
     private final ArrayList<Integer> mSupportedList;
     private final DisplayRefreshRateHelper mHelper;
@@ -97,7 +95,6 @@ public class MinRefreshRatePreferenceController extends BasePreferenceController
         }
 
         final int minRefreshRate = Integer.parseInt(refreshRate);
-        setOplusLtpoMinFps(minRefreshRate);
         final int peakRefreshRate = mHelper.getPeakRefreshRate();
         if (peakRefreshRate < minRefreshRate) {
             mHelper.setPeakRefreshRate(minRefreshRate);
@@ -111,16 +108,8 @@ public class MinRefreshRatePreferenceController extends BasePreferenceController
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final int minRefreshRate = Integer.parseInt((String) newValue);
-        mHelper.setMinimumRefreshRate(minRefreshRate);
-        setOplusLtpoMinFps(minRefreshRate);
+        mHelper.setMinimumRefreshRate(Integer.parseInt((String) newValue));
         updateState(preference);
         return true;
-    }
-
-    private void setOplusLtpoMinFps(int minRefreshRate) {
-        SystemProperties.set(OPLUS_LTPO_MIN_FPS_PROPERTY,
-                String.valueOf(minRefreshRate >= LTPO_LOW_REFRESH_RATE
-                        ? minRefreshRate : NO_MIN_REFRESH_RATE));
     }
 }
