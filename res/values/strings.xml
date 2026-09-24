@@ -15597,7 +15597,7 @@
 
     <!-- String for talkback on the account avatar of the search bar.  [CHAR LIMIT=NONE] -->
     <string name="search_bar_account_avatar_content_description"></string>
-    
+
     <!-- Plus Key -->
     <string name="top_level_pluskey_category_title">Plus Key &amp; AI</string>
     <string name="top_level_pluskey_title">Plus Key</string>
